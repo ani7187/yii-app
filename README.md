@@ -2,59 +2,78 @@
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
     </a>
-    <h1 align="center">Yii 2 Advanced Project Template</h1>
+    <h1 align="center">Club management app with Yii 2 Advanced Project Template</h1>
     <br>
 </p>
 
-Yii 2 Advanced Project Template is a skeleton [Yii 2](https://www.yiiframework.com/) application best for
-developing complex Web applications with multiple tiers.
 
-The template includes three tiers: front end, back end, and console, each of which
-is a separate Yii application.
+## Features
 
-The template is designed to work in a team development environment. It supports
-deploying the application in different environments.
+- **User Authentication**: Register, log in, and log out.
+- **CRUD Operations**: Create, Read, Update, and Delete clubs and clients.
 
-Documentation is at [docs/guide/README.md](docs/guide/README.md).
+## Setup
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![build](https://github.com/yiisoft/yii2-app-advanced/workflows/build/badge.svg)](https://github.com/yiisoft/yii2-app-advanced/actions?query=workflow%3Abuild)
+### Prerequisites
+Ensure you have installed
+- **Docker**
 
-DIRECTORY STRUCTURE
--------------------
+## Installation
 
-```
-common
-    config/              contains shared configurations
-    mail/                contains view files for e-mails
-    models/              contains model classes used in both backend and frontend
-    tests/               contains tests for common classes    
-console
-    config/              contains console configurations
-    controllers/         contains console controllers (commands)
-    migrations/          contains database migrations
-    models/              contains console-specific model classes
-    runtime/             contains files generated during runtime
-backend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains backend configurations
-    controllers/         contains Web controller classes
-    models/              contains backend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for backend application    
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-frontend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains frontend configurations
-    controllers/         contains Web controller classes
-    models/              contains frontend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for frontend application
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-    widgets/             contains frontend widgets
-vendor/                  contains dependent 3rd-party packages
-environments/            contains environment-based overrides
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ani7187/yii-app.git
+   cd yii-app
+
+## Configuration
+
+### Database and Mail Setup
+
+Edit `common/config/main-local.php`:
+
+```php
+<?php
+
+return [
+    'components' => [
+        'db' => [
+            'class' => \yii\db\Connection::class,
+            'dsn' => 'mysql:host=mysql;dbname=yii2advanced',
+            'username' => 'yii2advanced',
+            'password' => 'secret',
+            'charset' => 'utf8',
+        ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'viewPath' => '@common/mail',
+            'useFileTransport' => false,
+            'transport' => [
+                'scheme' => 'smtp',
+                'host' => 'smtp.example.com',      // e.g., smtp.gmail.com
+                'username' => 'your@email.com',
+                'password' => 'your_email_password',
+                'port' => '587',                  // Typically 465 for SSL, 587 for TLS
+                'encryption' => 'tls',             // ssl or tls
+            ],
+        ],
+    ],
+];
+```    
+- **Start the application using Docker:**
+    ```bash 
+    docker-compose up --build -d
+- **Go into container:**
+    ```bash
+    docker exec -it app-frontend-1 bash
+- **Install dependencies:**
+    ```bash
+    composer install
+- **Set up the database:**
+    ```bash
+    phh yii migrate
+- Access the app at http://localhost:20080.
+
+## Contact
+For more details or to report bugs, contact at:
+- 📧Email: azizyana02@gmail.com
+
