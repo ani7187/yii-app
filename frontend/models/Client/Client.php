@@ -36,7 +36,7 @@ class Client extends ActiveRecord
             [['clubs'], 'each', 'rule' => ['integer'], 'when' => function ($model) {
                 return !$model->deleting;
             }],
-            [['created_by', 'updated_by', 'deleted_by'], 'integer'],
+            [['created_by', 'updated_by'], 'integer'],
             [['full_name'], 'string', 'max' => 255],
             [['gender'], 'in', 'range' => ['male', 'female']],
             [['created_at'], 'date', 'format' => 'php:Y-m-d H:i:s'],
