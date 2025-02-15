@@ -27,6 +27,19 @@ Ensure you have installed
 
 ## Configuration
 
+- **Start the application using Docker:**
+    ```bash 
+    docker-compose up --build -d
+- **Go into container:**
+    ```bash
+    docker exec -it yii-app-frontend-1 bash
+- **Install dependencies:**
+    ```bash
+    composer install
+- **Init php**
+    ```bash
+    php init
+
 ### Database and Mail Setup
 
 Edit `common/config/main-local.php`:
@@ -58,16 +71,8 @@ return [
         ],
     ],
 ];
-```    
-- **Start the application using Docker:**
-    ```bash 
-    docker-compose up --build -d
-- **Go into container:**
-    ```bash
-    docker exec -it app-frontend-1 bash
-- **Install dependencies:**
-    ```bash
-    composer install
+```
+
 - **Set up the database:**
     ```bash
     phh yii migrate
