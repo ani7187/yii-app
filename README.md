@@ -75,7 +75,7 @@ return [
 
 - **Set up the database:**
     ```bash
-    phh yii migrate
+    php yii migrate
 - Access the app at http://localhost:20080.
 
 ## Contact
