@@ -28,7 +28,7 @@ class Client extends ActiveRecord
     public function rules()
     {
         return [
-            [['full_name'], 'required'],
+            [['full_name', 'gender'], 'required'],
             [['birth_date'], 'safe'],
             [['clubs'], 'required', 'when' => function ($model) {
                 return !$model->deleting;

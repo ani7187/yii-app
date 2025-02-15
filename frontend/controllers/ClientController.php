@@ -122,6 +122,7 @@ class ClientController extends Controller
         $model->deleting = true;
         $model->deleted_at = date('Y-m-d H:i:s');
         $model->updated_by = Yii::$app->user->id;
+        $model->save();
 
         return $this->redirect(['index']);
     }
