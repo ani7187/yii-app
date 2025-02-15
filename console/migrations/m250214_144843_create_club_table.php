@@ -25,7 +25,6 @@ class m250214_144843_create_club_table extends Migration
 
         $this->addForeignKey('fk-club-created_by', '{{%club}}', 'created_by', '{{%user}}', 'id', 'SET NULL', 'CASCADE');
         $this->addForeignKey('fk-club-updated_by', '{{%club}}', 'updated_by', '{{%user}}', 'id', 'SET NULL', 'CASCADE');
-        $this->addForeignKey('fk-club-deleted_by', '{{%club}}', 'deleted_by', '{{%user}}', 'id', 'SET NULL', 'CASCADE');
     }
 
     /**

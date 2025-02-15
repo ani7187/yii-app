@@ -26,7 +26,6 @@ class m250214_145546_create_client_table extends Migration
 
         $this->addForeignKey('fk-client-created_by', '{{%client}}', 'created_by', '{{%user}}', 'id', 'SET NULL', 'CASCADE');
         $this->addForeignKey('fk-client-updated_by', '{{%client}}', 'updated_by', '{{%user}}', 'id', 'SET NULL', 'CASCADE');
-        $this->addForeignKey('fk-client-deleted_by', '{{%client}}', 'deleted_by', '{{%user}}', 'id', 'SET NULL', 'CASCADE');
     }
 
     /**
